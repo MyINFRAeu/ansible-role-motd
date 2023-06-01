@@ -10,8 +10,8 @@ it in a playbook with a global `become: yes`, or invoke the role in your playboo
 ```yaml
 - hosts: managed
   roles:
-      - role: myinfra.motd
-        become: yes
+    - role: myinfra.motd
+      become: yes
 ```
 
 ## Variables
@@ -55,23 +55,23 @@ myinfra_motd_update_content: additional dynamic content before motd
 
 ## Dependencies
 
--   None
+- None
 
 ## Playbook: example
 
 ## License
 
--   [MIT](LICENSE)
+- [MIT](LICENSE)
 
 ## Copyright
 
--   (c) 2023 All In One ~ [https://all-in-one.be](https://all-in-one.be)
--   (c) 2023 MyINFRA.eu ~ [https://myinfra..eu](https://myinfra.eu)
--   (c) 2023 Dennis de houx ~ [https://dehoux.be](https://dehoux.be)
+- (c) 2023 All In One ~ [https://all-in-one.be](https://all-in-one.be)
+- (c) 2023 MyINFRA.eu ~ [https://myinfra..eu](https://myinfra.eu)
+- (c) 2023 Dennis de houx ~ [https://dehoux.be](https://dehoux.be)
 
 ## Inspiration
 
 During development some roles in Ansible Galaxy/Github also inspired me,
 thanks to the following developers for the inspiration:
 
--   [geerlingguy](https://github.com/geerlingguy/)
+- [geerlingguy](https://github.com/geerlingguy/)

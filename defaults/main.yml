@@ -8,81 +8,81 @@ myinfra_mgmt_sysadmins_signature: MyINFRA.eu - Server Management
 myinfra_mgmt_sysadmins_email: info@myinfra.eu
 
 myinfra_motd_contact_info:
-    - " * Datacenter : ": "{{ myinfra_host_datacenter }}"
-    - " * Location   : ": "{{ myinfra_host_location }}"
-    - " * Contact    : ": "{{ myinfra_host_contact }}"
-    - " * Usage      : ": "{{ myinfra_host_usage }}"
+  - " * Datacenter : ": "{{ myinfra_host_datacenter }}"
+  - " * Location   : ": "{{ myinfra_host_location }}"
+  - " * Contact    : ": "{{ myinfra_host_contact }}"
+  - " * Usage      : ": "{{ myinfra_host_usage }}"
 
 myinfra_motd_server_info:
-    - " * Main IPv4  : ": "{{ myinfra_host_main_ipv4 }}"
-    - " * Main IPv6  : ": "{{ myinfra_host_main_ipv6 }}"
-    - " * Virtual    : ": "{{ 'Yes' if ansible_virtualization_role == 'guest' else 'No' }}\n"
-    - " * CPUs       : ": "{{ ansible_processor_vcpus }}"
-    - " * RAM        : ": "{{ (ansible_memtotal_mb / 1000) | round(1) }}GB"
+  - " * Main IPv4  : ": "{{ myinfra_host_main_ipv4 }}"
+  - " * Main IPv6  : ": "{{ myinfra_host_main_ipv6 }}"
+  - " * Virtual    : ": "{{ 'Yes' if ansible_virtualization_role == 'guest' else 'No' }}\n"
+  - " * CPUs       : ": "{{ ansible_processor_vcpus }}"
+  - " * RAM        : ": "{{ (ansible_memtotal_mb / 1000) | round(1) }}GB"
 
 myinfra_motd_mgmt_info:
-    - " * Company    : ": "{{ myinfra_mgmt_sysadmins_signature }}"
-    - " * Contact    : ": "{{ myinfra_mgmt_sysadmins_email }}"
+  - " * Company    : ": "{{ myinfra_mgmt_sysadmins_signature }}"
+  - " * Contact    : ": "{{ myinfra_mgmt_sysadmins_email }}"
 
 myinfra_motd_content: |
 
-    --------------------------------------------------------------------------
-                        This system is managed by
-                ___  ___     _____ _   _ ____________  ___              
-                |  \/  |    |_   _| \ | ||  ___| ___ \/ _ \             
-                | .  . |_   _ | | |  \| || |_  | |_/ / /_\ \  ___ _   _ 
-                | |\/| | | | || | | . ` ||  _| |    /|  _  | / _ \ | | |
-                | |  | | |_| || |_| |\  || |   | |\ \| | | ||  __/ |_| |
-                \_|  |_/\__, \___/\_| \_/\_|   \_| \_\_| |_(_)___|\__,_|
-                        __/ |                                          
-                        |___/                                           
-    --------------------------------------------------------------------------
+  --------------------------------------------------------------------------
+                      This system is managed by
+              ___  ___     _____ _   _ ____________  ___              
+              |  \/  |    |_   _| \ | ||  ___| ___ \/ _ \             
+              | .  . |_   _ | | |  \| || |_  | |_/ / /_\ \  ___ _   _ 
+              | |\/| | | | || | | . ` ||  _| |    /|  _  | / _ \ | | |
+              | |  | | |_| || |_| |\  || |   | |\ \| | | ||  __/ |_| |
+              \_|  |_/\__, \___/\_| \_/\_|   \_| \_\_| |_(_)___|\__,_|
+                      __/ |                                          
+                      |___/                                           
+  --------------------------------------------------------------------------
 
-    {{ ansible_fqdn }} is running {{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }}).
+  {{ ansible_fqdn }} is running {{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }}).
 
-      Note:
-    ~~~~~~~~~~~~~~~~~~~~~~~~
-     This system and application configuration for this host are managed by
-     automated systems. To ensure that any changes you make here are not lost,
-     please contact your system administrators.
+    Note:
+  ~~~~~~~~~~~~~~~~~~~~~~~~
+   This system and application configuration for this host are managed by
+   automated systems. To ensure that any changes you make here are not lost,
+   please contact your system administrators.
 
-      Contact Information:
-    ~~~~~~~~~~~~~~~~~~~~~~~~
-    {% for item in myinfra_motd_contact_info %}
-    {% for key, value in item.items() | list %}
-    {{ key }}{{ value }}
-    {% endfor %}
-    {% endfor %}
+    Contact Information:
+  ~~~~~~~~~~~~~~~~~~~~~~~~
+  {% for item in myinfra_motd_contact_info %}
+  {% for key, value in item.items() | list %}
+  {{ key }}{{ value }}
+  {% endfor %}
+  {% endfor %}
 
-      Server Information:
-    ~~~~~~~~~~~~~~~~~~~~~~~~
-    {% for item in myinfra_motd_server_info %}
-    {% for key, value in item.items() | list %}
-    {{ key }}{{ value }}
-    {% endfor %}
-    {% endfor %}
-    {% for item in myinfra_motd_info %}
-    {% for key, value in item.items() | list %}
-    {{ key }}{{ value }}
-    {% endfor %}
-    {% endfor %}
+    Server Information:
+  ~~~~~~~~~~~~~~~~~~~~~~~~
+  {% for item in myinfra_motd_server_info %}
+  {% for key, value in item.items() | list %}
+  {{ key }}{{ value }}
+  {% endfor %}
+  {% endfor %}
+  {% for item in myinfra_motd_info %}
+  {% for key, value in item.items() | list %}
+  {{ key }}{{ value }}
+  {% endfor %}
+  {% endfor %}
 
-      Managed by:
-    ~~~~~~~~~~~~~~~~~~~~~~~~
-    {% for item in myinfra_motd_mgmt_info %}
-    {% for key, value in item.items() | list %}
-    {{ key }}{{ value }}
-    {% endfor %}
-    {% endfor %}
+    Managed by:
+  ~~~~~~~~~~~~~~~~~~~~~~~~
+  {% for item in myinfra_motd_mgmt_info %}
+  {% for key, value in item.items() | list %}
+  {{ key }}{{ value }}
+  {% endfor %}
+  {% endfor %}
 
-    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    Last ansible run: {{ ansible_date_time.iso8601 }}
+  Last ansible run: {{ ansible_date_time.iso8601 }}
 
 myinfra_motd_add_update: false
 
 myinfra_motd_update_content: |
-    #!/bin/sh
-    echo
-    echo "uptime is $( uptime )"
-    echo "date   is $( date   )"
+  #!/bin/sh
+  echo
+  echo "uptime is $( uptime )"
+  echo "date   is $( date   )"

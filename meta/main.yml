@@ -1,21 +1,21 @@
 ---
 galaxy_info:
-    author: Dennis de Houx
-    description: Setup the message of the day (motd)
-    company: MyINFRA.eu
-    license: MIT
-    min_ansible_version: 2.9
-    platforms:
-        - name: Ubuntu
-          versions:
-              - all
-        - name: Debian
-          versions:
-              - all
-        - name: RHEL
-          versions:
-              - all
-    galaxy_tags:
-        - system
-        - motd
+  author: Dennis de Houx
+  description: Setup the message of the day (motd)
+  company: MyINFRA.eu
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: RHEL
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - motd
 dependencies: []
