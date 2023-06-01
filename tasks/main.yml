@@ -1,6 +1,8 @@
 ---
 # Tasks file for myinfra.eu motd
 
+- hosts: all
+
 - name: Remove default motd configuration
   block:
       - name: Create backup folder
