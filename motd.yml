@@ -1,6 +1,0 @@
-- name: MyINFRA.eu - Message of the day
-  hosts: all
-  tasks:
-      - name: "Hello Test Message"
-        debug:
-            msg: "Hello World!"
